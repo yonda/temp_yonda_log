@@ -1,6 +1,6 @@
 %h1 New Post
 
-= form_for :post, url: posts_path do |f|
+= form_for @post do |f|
   - if @post.errors.any?
     %div#error_explanation
       %h2= "#{@post.errors.count}件のエラーが発生したため保存ができませんでした。"
@@ -15,7 +15,6 @@
     = f.label :text, '内容'
     %br
     = f.text_area :text, cols: 40, rows: 8
-  %p
-    = f.submit
+  %p= f.submit
 
 = link_to 'Back', posts_path
