@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  http_basic_authenticate_with name: "user", password: "secret", except: [:index, :show]
+
   before_action :set_post, only: %w(show edit update destroy)
 
   def new

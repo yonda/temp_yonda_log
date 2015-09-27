@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  http_basic_authenticate_with name: "user", password: "secret", only: [:destroy]
+
   before_action :set_post
 
   def create
