@@ -1,0 +1,16 @@
+= form_for @post do |f|
+  - if @post.errors.any?
+    %div#error_explanation
+      %h2= "#{@post.errors.count}件のエラーが発生したため保存ができませんでした。"
+    %ul
+      - @post.errors.full_messages.each do |msg|
+        %li= msg
+  %p
+    = f.label :title, 'タイトル'
+    %br
+    = f.text_field :title
+  %p
+    = f.label :text, '内容'
+    %br
+    = f.text_area :text, cols: 40, rows: 8
+  %p= f.submit
