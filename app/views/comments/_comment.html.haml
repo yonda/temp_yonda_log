@@ -2,3 +2,5 @@
   %strong= "コメンター: #{comment.commenter}"
 %p
   %strong= "コメント: #{comment.body}"
+
+%p= link_to 'コメント削除', [comment.post, comment], method: :delete, data: {confirm: '削除しますか?'}
